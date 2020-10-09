@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matador de Monstro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="panel scores">
+            <div class="score">
+                <h1>Jogador</h1>
+                <div class="life-bar">
+                    <div class="life"
+                    :class="{danger: playerlife < 20}"
+                    :style="{width: playerlife + '%'}"></div>
+                </div>
+                <div>{{playerlife}}%</div>
+            </div>
+            <div class="score">
+                <h1>Monstro</h1>
+                <div class="life-bar">
+                    <div class="life"
+                    :class="{danger: monsterLife < 20}"
+                    :style="{width: monsterLife + '%'}"></div>
+                </div>
+                <div>{{monsterLife}}%</div>
+            </div>
+        </div>
+        <div v-if="hasResult" class="panel result">
+            <div v-if="monsterLife == 0" class="win">Voce ganhou!!! :)</div>
+            <div v-else class="lose">Voce perdeu! :(</div>
+        </div>
+        <div  class="panel buttons">
+            <buttun class="btn">Ataque</buttun>
+            <buttun class="btn">Ataque Especial</buttun>
+            <buttun class="btn">Curar</buttun>
+            <buttun class="btn">Desistir</buttun>
+            <buttun class="btn">Iniciar Jogo</buttun>
+        </div>
+        <div  class="panel logs">4</div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
